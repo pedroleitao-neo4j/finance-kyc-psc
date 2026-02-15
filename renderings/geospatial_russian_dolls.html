@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.0.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 0,
+    "latitude": 54.5,
+    "longitude": -3.0,
+    "pitch": 45,
+    "zoom": 6
+  },
+  "layers": [
+    {
+      "@@type": "ArcLayer",
+      "data": [
+        {
+          "path_id": 0,
+          "source": [
+            -4.4833,
+            54.15
+          ],
+          "source_name": "Mr James Robert Bareham",
+          "step": 0,
+          "target": [
+            -2.9779,
+            53.4106
+          ],
+          "target_name": "CYTOS 2018 LIMITED",
+          "total_steps": 7
+        },
+        {
+          "path_id": 0,
+          "source": [
+            -2.9779,
+            53.4106
+          ],
+          "source_name": "CYTOS 2018 LIMITED",
+          "step": 1,
+          "target": [
+            -2.9779,
+            53.4106
+          ],
+          "target_name": "Cytos 2018 Limited",
+          "total_steps": 7
+        },
+        {
+          "path_id": 0,
+          "source": [
+            -2.9779,
+            53.4106
+          ],
+          "source_name": "Cytos 2018 Limited",
+          "step": 2,
+          "target": [
+            -2.9779,
+            53.4106
+          ],
+          "target_name": "DERWENT LODGE ESTATES LIMITED",
+          "total_steps": 7
+        },
+        {
+          "path_id": 0,
+          "source": [
+            -2.9779,
+            53.4106
+          ],
+          "source_name": "DERWENT LODGE ESTATES LIMITED",
+          "step": 3,
+          "target": [
+            -2.9779,
+            53.4106
+          ],
+          "target_name": "Derwent Lodge Estates Ltd",
+          "total_steps": 7
+        },
+        {
+          "path_id": 0,
+          "source": [
+            -2.9779,
+            53.4106
+          ],
+          "source_name": "Derwent Lodge Estates Ltd",
+          "step": 4,
+          "target": [
+            -2.9779,
+            53.4106
+          ],
+          "target_name": "TATTON LAND LIMITED",
+          "total_steps": 7
+        },
+        {
+          "path_id": 0,
+          "source": [
+            -2.9779,
+            53.4106
+          ],
+          "source_name": "TATTON LAND LIMITED",
+          "step": 5,
+          "target": [
+            -2.1496,
+            53.3582
+          ],
+          "target_name": "Tatton Land Limited",
+          "total_steps": 7
+        },
+        {
+          "path_id": 0,
+          "source": [
+            -2.1496,
+            53.3582
+          ],
+          "source_name": "Tatton Land Limited",
+          "step": 6,
+          "target": [
+            -2.9779,
+            53.4106
+          ],
+          "target_name": "CITY OF LIVERPOOL INVESTMENT COMPANY LIMITED(THE)",
+          "total_steps": 7
+        }
+      ],
+      "getHeight": "@@=5 * (1 - (step / (total_steps + 1)))",
+      "getSourceColor": "@@=[255 * (1 - (step/total_steps)), 50, 255 * (step/total_steps), 160]",
+      "getSourcePosition": "@@=source",
+      "getTargetColor": "@@=[255 * (1 - ((step+1)/total_steps)), 50, 255 * ((step+1)/total_steps), 160]",
+      "getTargetPosition": "@@=target",
+      "getTilt": 15,
+      "getWidth": "@@=2 + step",
+      "id": "a21a61b2-e0b0-411b-ba52-4d15a96cc1fe",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'html': '<b>Hop:</b> {step}<br/><b>From:</b> {source_name}<br/><b>To:</b> {target_name}'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
