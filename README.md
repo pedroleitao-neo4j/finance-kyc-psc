@@ -85,6 +85,12 @@ Leverages the spatial data enriched during the loading phase to visualize econom
 * **Industry Clustering:** Maps dominant industries (via SIC codes) to specific locations (e.g., Tech in Shoreditch vs. Finance in Canary Wharf).
 * **Cross-Border Outflows:** Visualizes ownership flows from UK assets to foreign jurisdictions, highlighting connections to tax havens via 3D ArcLayers.
 
+<p align="center">
+  <img src="renderings/finance_choropleth_dynamic.png" alt="Finance Choropleth"/>
+  <br>
+  <sub>Dynamic visualization of the density of financial industry businesses across London.</sub>
+</p>
+
 ## Setup & Configuration
 
 ### Prerequisites
