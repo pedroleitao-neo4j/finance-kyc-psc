@@ -72,7 +72,7 @@ The ETL pipeline transforms raw CSV and JSON data into a rich property graph. Th
 
 The project is divided into three primary notebooks, handling data ingestion, graph analysis, and geospatial intelligence.
 
-### 1. Data Loader & ETL ([`loader.ipynb`](loader.ipynb))
+### Data Loader & ETL ([`loader.ipynb`](loader.ipynb))
 
 A robust PySpark pipeline designed to ingest and clean UK corporate registry data.
 
@@ -81,7 +81,7 @@ A robust PySpark pipeline designed to ingest and clean UK corporate registry dat
 * **Entity Resolution:** Generates deterministic unique IDs (MD5 hashes) for Persons and Addresses to prevent duplication.
 * **Schema Enforcement:** Applies Neo4j constraints to ensure data integrity before loading.
 
-### 2. UBO & Control Analysis ([`ubo.ipynb`](ubo.ipynb))
+### UBO & Control Analysis ([`ubo.ipynb`](ubo.ipynb))
 
 Demonstrates how to query the graph to identify beneficial owners and complex control structures.
 
@@ -90,7 +90,7 @@ Demonstrates how to query the graph to identify beneficial owners and complex co
 * **Indirect Control Inference:** Detects "Bridge" structures where a person controls a target company via an intermediary organization.
 * **"Russian Doll" Structures:** Recursive queries that uncover deep, multi-layered ownership chains often used to obscure true ownership.
 
-### 3. Geospatial Intelligence ([`geo.ipynb`](geo.ipynb))
+### Geospatial Intelligence ([`geo.ipynb`](geo.ipynb))
 
 Leverages the spatial data enriched during the loading phase to visualize economic patterns.
 
