@@ -18,18 +18,18 @@ In this context, traditional relational databases often struggle to capture the 
 
 ## The Stack
 
-* **Neo4j Graph Database:** The core engine for storing and querying connected governance data.
-* **Apache Spark (PySpark):** Used for high-performance ETL, capable of processing millions of company and officer records.
-* **Neo4j Connector for Apache Spark:** Enables high-throughput data transfer between Spark DataFrames and Neo4j.
-* **PyDeck:** Utilized for high-fidelity 3D geospatial visualizations (Heatmaps, ArcLayers, ColumnLayers).
-* **pgeocode:** Used within Spark UDFs to batch-geocode UK postcodes into latitude/longitude coordinates.
+- **Neo4j Graph Database:** The core engine for storing and querying connected governance data.
+- [**Apache Spark (PySpark):**](https://spark.apache.org/) Used for high-performance ETL, capable of processing millions of company and officer records.
+- [**Neo4j Connector for Apache Spark:**](https://neo4j.com/developer/spark/) Enables high-throughput data transfer between Spark DataFrames and Neo4j.
+- [**PyDeck:**](https://pydeck.gl/) Utilized for high-fidelity 3D geospatial visualizations (Heatmaps, ArcLayers, ColumnLayers).
+- [**pgeocode:**](https://pypi.org/project/pgeocode/) Used within Spark UDFs to batch-geocode UK postcodes into latitude/longitude coordinates.
 
 ## The Dataset
 
 The pipeline consumes public data from **Companies House (UK)**. Specifically:
 
-1. **Basic Company Data:** Foundational details (Name, Status, Incorporation Date, SIC Codes) for over 5 million companies.
-2. **Persons with Significant Control (PSC):** A snapshot detailing the beneficial ownership structures, linking individuals and organizations to the companies they control.
+- **Basic Company Data:** Foundational details (Name, Status, Incorporation Date, SIC Codes) for over 5 million companies.
+- **Persons with Significant Control (PSC):** A snapshot detailing the beneficial ownership structures, linking individuals and organizations to the companies they control.
 
 ## The Graph Model
 
@@ -56,6 +56,8 @@ The ETL pipeline transforms raw CSV and JSON data into a rich property graph. Th
 
 * `(:Person|:Organization)-[:CONTROLS]->(:Company)`: Represents beneficial ownership. Enriched with parsed voting rights and share percentages (e.g., `voting_rights_min: 25`, `voting_rights_max: 50`).
 * `(:Company)-[:REGISTERED_AT]->(:Address)`: Physical footprint of the business.
+* `(:Company)-[:HAS_STATUS]->(:CompanyStatus)`: Current legal status of the company.
+* `(:Company)-[:REGISTERED_IN]->(:Country)`: Jurisdiction of incorporation.
 * `(:Person)-[:LIVES_AT]->(:Address)`: Residence of the controller.
 * `(:Company)-[:HAS_SIC]->(:SICCode)`: Classification of business activity.
 * `(:Company)-[:HAS_PREVIOUS_NAME]->(:PreviousName)`: Tracks corporate history.
