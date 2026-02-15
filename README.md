@@ -54,6 +54,12 @@ The ETL pipeline transforms raw CSV and JSON data into a rich property graph. Th
 * `(:Company)-[:HAS_SIC]->(:SICCode)`: Classification of business activity.
 * `(:Company)-[:HAS_PREVIOUS_NAME]->(:PreviousName)`: Tracks corporate history.
 
+<p align="center">
+  <img src="renderings/unified_outflows.png" alt="Unified Control Outflows"/>
+  <br>
+  <sub>Visualization of control outflows of UK companies.</sub>
+</p>
+
 ## Notebooks
 
 The project is divided into three primary notebooks, handling data ingestion, graph analysis, and geospatial intelligence.
