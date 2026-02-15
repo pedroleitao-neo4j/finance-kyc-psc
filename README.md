@@ -10,7 +10,7 @@ By transitioning from flat, tabular registry data to a connected graph structure
   <sub>The voting rights of an expanded network of control.</sub>
 </p>
 
-## The Business Background
+## The Business Background
 
 Identifying the Ultimate Beneficial Owner (UBO) is a cornerstone of modern compliance frameworks across the financial, insurance, and risk management sectors. It is no longer sufficient to simply know the immediate legal entity acting as a customer; organizations must pierce the corporate veil to understand the individuals who truly profit from and control these entities. This requirement is driven by increasingly stringent global regulations aimed at curbing money laundering, terrorist financing, and tax evasion. Failing to accurately identify UBOs exposes institutions to severe reputational damage and regulatory fines, making robust due diligence not just a legal obligation but a critical component of operational risk management.
 
