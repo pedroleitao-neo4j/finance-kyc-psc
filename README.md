@@ -1,6 +1,6 @@
 # UK Corporate Governance & UBO Analysis with Neo4j
 
-This repo implements a high-throughput **KYC (Know Your Customer)** and **AML (Anti-Money Laundering)** knowledge graph pipeline using **UK Companies House** data.
+This repo implements a high-throughput **KYC (Know Your Customer)** and **AML (Anti-Money Laundering)** knowledge graph pipeline using **UK Companies House** data. This builds on [Erik Bijl's excellent demonstration of graph-based UBO analysis](https://github.com/erikbijl/neo4j-company-house-demo), extending it with additional use cases.
 
 By transitioning from flat, tabular registry data to a connected graph structure, this graph approach enables organizations to instantly traverse ownership structures, identify **Ultimate Beneficial Owners (UBOs)**, detect high-risk ["Russian Doll"](https://www.mondaq.com/unitedstates/securities/1424234/the-unravelling-of-the-matryoshka-doll-impact-of-the-cta-on-entities-having-nexus-to-the-us) corporate structures, and visualize the geospatial footprint of the UK economy.
 
@@ -98,9 +98,9 @@ Additionally, interactive renderings can be found in the `renderings/` directory
 Here we focus on identifying potential illicit activity by analyzing structural and geospatial anomalies within the corporate network. The notebook investigates "Registration Factories" by calculating the density of company registrations at individual addresses, visualizing extreme outliers that may indicate company mills or fraudulent shell company farms. It also implements graph algorithms to detect "Circular Ownership" loops, where ownership chains are engineered to loop back on themselves—a sophisticated technique often used to artificially inflate capital or decapitate the ownership structure to hide the Ultimate Beneficial Owner. Finally, the analysis maps the "Offshore Nexus," visualizing the concentration of control flowing from high-secrecy jurisdictions like Jersey and Guernsey to specific UK districts, helping to pinpoint clusters of assets that may be involved in capital flight or tax evasion.
 
 <p align="center">
-  <img src="renderings/finance_choropleth_dynamic.png" alt="Finance Choropleth"/>
+  <img src="renderings/high_velocity_name_changes_graph.png" alt="High Velocity Name Changes"/>
   <br>
-  <sub>Dynamic visualization of the density of financial industry businesses across London.</sub>
+  <sub>Visualization of companies with high-velocity name changes.</sub>
 </p>
 
 ## Setup & Configuration
@@ -145,3 +145,4 @@ conda env create -f environment.yml
 1. Run [`loader.ipynb`](loader.ipynb) to download data, process it with Spark, and populate the Neo4j graph.
 2. Run [`ubo.ipynb`](ubo.ipynb) to perform graph traversals and identify beneficial owners.
 3. Run [`geo.ipynb`](geo.ipynb) to generate geospatial visualizations.
+4. Run [`fraud.ipynb`](fraud.ipynb) to analyze potential fraud patterns in the corporate network.
