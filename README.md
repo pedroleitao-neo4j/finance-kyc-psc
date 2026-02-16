@@ -93,6 +93,12 @@ This notebook leverages the spatial data enriched during the loading phase to vi
 
 Additionally, interactive renderings can be found in the `renderings/` directory, showcasing the dynamic and geospatial visualizations generated from the graph data. You can download HTML files of the visualizations and open them in a web browser to explore the interactive features.
 
+### Fraud Patterns ([`fraud.ipynb`](fraud.ipynb))
+
+Here we focus on identifying potential illicit activity by analyzing structural and geospatial anomalies within the corporate network. The notebook investigates "Registration Factories" by calculating the density of company registrations at individual addresses, visualizing extreme outliers that may indicate company mills or fraudulent shell company farms. It also implements graph algorithms to detect "Circular Ownership" loops, where ownership chains are engineered to loop back on themselves—a sophisticated technique often used to artificially inflate capital or decapitate the ownership structure to hide the Ultimate Beneficial Owner. Finally, the analysis maps the "Offshore Nexus," visualizing the concentration of control flowing from high-secrecy jurisdictions like Jersey and Guernsey to specific UK districts, helping to pinpoint clusters of assets that may be involved in capital flight or tax evasion.
+
+Here we focus 
+
 <p align="center">
   <img src="renderings/finance_choropleth_dynamic.png" alt="Finance Choropleth"/>
   <br>
